@@ -72,8 +72,8 @@ const start = (bocchi = new Client()) => {
         console.log(color('[BLOCK]', 'red'), color(`${callData.peerJid} has been blocked.`, 'yellow'))
     })
 
-    // Clear chats every 12 hour
-    cron.schedule('0 */12 * * *', async () => {
+    // Clear chats every 2 hour
+    cron.schedule('0 */2 * * *', async () => {
         const allChats = await bocchi.getAllChats()
         for (let chats of allChats) {
             if (chats.isGroup === true) {
